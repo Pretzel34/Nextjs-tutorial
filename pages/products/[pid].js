@@ -1,6 +1,7 @@
-import { Fragment } from "react";
-import fs from "fs/promises";
 import path from "path";
+import fs from "fs/promises";
+
+import { Fragment } from "react";
 
 function ProductDetailPage(props) {
   const { loadedProduct } = props;
@@ -8,6 +9,7 @@ function ProductDetailPage(props) {
   if (!loadedProduct) {
     return <p>Loading...</p>;
   }
+
   return (
     <Fragment>
       <h1>{loadedProduct.title}</h1>
@@ -36,6 +38,7 @@ export async function getStaticProps(context) {
   if (!product) {
     return { notFound: true };
   }
+
   return {
     props: {
       loadedProduct: product,
